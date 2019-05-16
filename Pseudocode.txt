@@ -1,0 +1,6 @@
+//Get query url for data set
+//All earthquakes for the past 7 days
+//https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson
+//Markers represent the magnitude of the earthquake in size and color - if else statement
+//Popups with additional information about the earthquake when a marker is clicked.
+//Legend that provides context as to the color magnitude of the earthquakes
