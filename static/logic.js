@@ -12,7 +12,9 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
   accessToken: API_KEY
 }).addTo(myMap);
 
-var baseURL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson";
+var baseUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson";
+
+d3.json(baseUrl, function(data) {
 
 function styleInfo(feature) {
   return {
@@ -62,7 +64,7 @@ L.geoJson(data, {
   onEachFeature: function (feature, layer) {
     layer.bindPopup("Magnitude: " + feature.properties.mag + "<br>Location: " + feature.properties.place);
   }
-}).addTo(map);
+}).addTo(myMap);
 
 var legend = L.control({
   position: "bottomright"
@@ -79,13 +81,5 @@ legend.onAdd = function () {
   }
   return div;
 }
-legend.addTo(map);
-
-// Create a layer control
-// Pass in our baseMaps and overlayMaps
-// Add the layer control to the map
-L.control.layers(baseMaps, overlayMaps, {
-  collapsed: false
-}).addTo(map);
-
-
+legend.addTo(myMap);
+})
